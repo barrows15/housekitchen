@@ -3,7 +3,7 @@
 
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
-<%-- <%@ taglib uri="WEB-INF/mytags.tld" prefix="m" %> --%>  
+<%@ taglib uri="WEB-INF/mytld.tld" prefix="m" %>  
  
 
 <!DOCTYPE html>
@@ -22,15 +22,18 @@
 </head>
 <body>
 <%@ include file="navbar_normal.jsp" %>
-	<c:set var="Income" scope="session" value="${4000*4}" />
+
+<m:mytag />
+
+<c:set var="Income" scope="session" value="${4000*4}" />
 	<c:out value="${Income}" />
 	<c:if test="${Income > 2000}">
 		<p>
-			My salary is:
+			My salary is $:
 			<c:out value="${Income}" />
 		<p>
 	</c:if>
-<%-- Current Date and Time is: <m:welcome/> --%> 
+
 <script src="https://code.jquery.com/jquery-3.7.1.js"
 		integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4="
 		crossorigin="anonymous"></script>
