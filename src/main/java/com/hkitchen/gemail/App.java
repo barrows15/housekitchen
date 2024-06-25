@@ -12,9 +12,8 @@ public class App {
 		String subject = "test gemail";
 		String text = "test gemail sender app message";
 		GEmailSender gEmailSender = new GEmailSender();
-
-		Boolean b = gEmailSender.sendEmail(to, from, subject, text);
-
+		boolean b=false;
+		b = gEmailSender.sendEmail(to, from, subject, text);
 		if (b) {
 			System.out.println("Success");
 		} else {

@@ -28,11 +28,15 @@
 			</span>
           Sign up</a>
         </li>
-        </li>
          <li class="nav-item">
           <a class="nav-link" href="contact.jsp">
           <span> <i class="fa fa-envelope-o" aria-hidden="true"></i></span>&nbsp;
           contact</a>
+        </li>
+         <li class="nav-item">
+          <a class="nav-link" href="reply.jsp">
+          <span><i class="fa fa-reply" aria-hidden="true"></i></span>
+          reply</a>
         </li>
         </li>
          <li class="nav-item">

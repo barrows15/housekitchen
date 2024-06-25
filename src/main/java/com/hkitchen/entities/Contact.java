@@ -8,8 +8,18 @@ public class Contact {
 	private String subject;
 	private String body;
 	private String sentAt; 
+	private String reply_message;
+	private String isReplied;
 	
-	public Contact(int id, String fromEmail, String toEmail, String subject, String body, String sentAt) {
+	public String getReply_message() {
+		return reply_message;
+	}
+
+	public void setReply_message(String reply_message) {
+		this.reply_message = reply_message;
+	}
+
+	public Contact(int id, String fromEmail, String toEmail, String subject, String body, String sentAt, String reply_message,String isReplied) {
 		super();
 		this.id = id;
 		this.fromEmail = fromEmail;
@@ -17,6 +27,8 @@ public class Contact {
 		this.subject = subject;
 		this.body = body;
 		this.sentAt = sentAt;
+		this.reply_message = reply_message;
+		this.isReplied = isReplied;
 	}
 
 	public Contact(String fromEmail, String toEmail, String subject, String body) {
@@ -77,6 +89,12 @@ public class Contact {
 
 	public void setSentAt(String sentAt) {
 		this.sentAt = sentAt;
+	}
+
+	@Override
+	public String toString() {
+		return "Contact [id=" + id + ", fromEmail=" + fromEmail + ", toEmail=" + toEmail + ", subject=" + subject
+				+ ", body=" + body + ", sentAt=" + sentAt + ", reply_message=" + reply_message + "]";
 	}
 
 }

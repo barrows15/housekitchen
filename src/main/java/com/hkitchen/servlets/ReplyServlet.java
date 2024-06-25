@@ -1,7 +1,7 @@
 package com.hkitchen.servlets;
 
 import jakarta.servlet.ServletException;
-import jakarta.servlet.annotation.MultipartConfig;
+import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
@@ -11,16 +11,24 @@ import java.io.PrintWriter;
 import com.hkitchen.dao.ContactDao;
 import com.hkitchen.entities.Contact;
 
-
-@MultipartConfig
-public class ContactServlet extends HttpServlet {
+/**
+ * Servlet implementation class ReplyServlet
+ */
+public class ReplyServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
-    public ContactServlet() {
+    /**
+     * @see HttpServlet#HttpServlet()
+     */
+    public ReplyServlet() {
         super();
+        // TODO Auto-generated constructor stub
     }
 
-	public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	/**
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 */
+    public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String fromEmail = request.getParameter("fromEmail");
 		String email = request.getParameter("email");
 		String subject = request.getParameter("subject");
@@ -58,8 +66,12 @@ public class ContactServlet extends HttpServlet {
 		}
 	}
 
-	public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		System.out.println("doPost");
+
+	/**
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
 		doGet(request, response);
 	}
 

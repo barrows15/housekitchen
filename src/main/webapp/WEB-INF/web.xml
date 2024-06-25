@@ -48,16 +48,42 @@
     <servlet-name>Contact</servlet-name>
     <url-pattern>/contact</url-pattern>
   </servlet-mapping>
-  
-	<filter>  
-		<filter-name>f1</filter-name>  
-		<filter-class>com.hkitchen.filter.AuthenticationFilter</filter-class>  
-	</filter>  
-   
-	<filter-mapping>  
-		<filter-name>f1</filter-name>  
-		<url-pattern>/profile</url-pattern>  
-	</filter-mapping> 
-
-
+  <filter>
+    <filter-name>f1</filter-name>
+    <filter-class>com.hkitchen.filter.AuthenticationFilter</filter-class>
+  </filter>
+  <filter-mapping>
+    <filter-name>f1</filter-name>
+    <url-pattern>/profile</url-pattern>
+  </filter-mapping>
+  <servlet>
+    <description></description>
+    <display-name>ReplyServlet</display-name>
+    <servlet-name>ReplyServlet</servlet-name>
+    <servlet-class>com.hkitchen.servlets.ReplyServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ReplyServlet</servlet-name>
+    <url-pattern>/ReplyServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>GetAllUsers</display-name>
+    <servlet-name>GetAllUsers</servlet-name>
+    <servlet-class>com.hkitchen.servlets.GetAllUsers</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>GetAllUsers</servlet-name>
+    <url-pattern>/GetAllUsers</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>ReplySendUpdate</display-name>
+    <servlet-name>ReplySendUpdate</servlet-name>
+    <servlet-class>com.hkitchen.servlets.ReplySendUpdate</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ReplySendUpdate</servlet-name>
+    <url-pattern>/replySendUpdate</url-pattern>
+  </servlet-mapping>
 </web-app>

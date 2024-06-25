@@ -4,15 +4,19 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
 
 import com.hkitchen.entities.User;
 
 public class UserDao {
 	Connection con = ConnectionProvider.getConnection();
-	User user = new User();
+
 
 	public User getUserByEmail(String email) {
 		String q = "select id, name, password, email from user where email= ?;";
+		User user = new User();
 		try {
 			PreparedStatement ps = con.prepareStatement(q);
 			ps.setString(1, email);
@@ -39,7 +43,7 @@ public class UserDao {
 			e.printStackTrace();
 			System.out.println("error");
 		}
-		return this.user;
+		return user;
 	}
 
 	public int save(User user) {
@@ -75,6 +79,43 @@ public class UserDao {
 			System.out.println("error");
 		}
 		return result;
+	}
+	
+	public ArrayList<User> getAllUsers() {
+		String q = "select id, name, password, email from user where role='USER';";
+		ArrayList<User> list = new ArrayList<>();
+		
+		try {
+			Statement stmt = con.createStatement();
+			System.out.println("stmt" + stmt);
+			ResultSet rs = stmt.executeQuery(q);
+			System.out.println("after query");
+			System.out.println("rs:" + rs);
+			while (rs.next()) {
+				// Go to next row by calling next() method
+				int id = rs.getInt("id");
+				String name=rs.getString("name");
+				String password=rs.getString("password");
+				String email= rs.getString("email");
+				User user = new User();
+				user.setId(id);
+				user.setName(name);
+				user.setPassword(password);
+				user.setEmail(email);
+				
+				System.out.println(user);
+				
+				list.add(user);
+			}
+			con.close();
+			for (User us :list) {
+				System.out.println("list:"+us.getName());
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+			System.out.println("error");
+		}
+		return list;
 	}
 	
 }
